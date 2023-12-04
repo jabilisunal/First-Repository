@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <title>Cookie Policy Popup</title>
+        <style>
+            .cookie-popup {
+                position: fixed;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 600px;
+                background-color: #ffffff;
+                padding: 20px;
+                display: none; /* Initially hidden */
+                z-index: 1000;
+                border-radius: 8px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .cookie-content p {
+                font-size: 14px;
+                line-height: 1.4;
+                margin-bottom: 15px;
+            }
+
+            .cookie-content a {
+                color: #007bff;
+                text-decoration: underline;
+            }
+
+            .cookie-buttons {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .cookie-content button {
+                padding: 8px 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 14px;
+                transition: background-color 0.3s;
+            }
+
+            #acceptCookies {
+                background-color: #34c759;
+                color: #ffffff;
+            }
+
+            #declineCookies {
+                background-color: #ff3b30;
+                color: #ffffff;
+            }
+
+            .cookie-content button:hover {
+                opacity: 0.8;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="cookiePolicyPopup" class="cookie-popup">
+            <div class="cookie-content">
+                <p>
+                    We use cookies to enhance your experience. By continuing to visit this site, you agree to our use of cookies.
+                    <a href="/cookie-policy">Learn more</a>
+                </p>
+                <div class="cookie-buttons">
+                    <button id="acceptCookies">Accept</button>
+                    <button id="declineCookies">Decline</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var cookiePopup = document.getElementById('cookiePolicyPopup');
+                var acceptButton = document.getElementById('acceptCookies');
+                var declineButton = document.getElementById('declineCookies');
+
+                if (!getCookie('cookiePolicy')) {
+                    cookiePopup.style.display = 'block';
+                }
+
+                acceptButton.addEventListener('click', function() {
+                    setCookie('cookiePolicy', 'accepted', 365);
+                    cookiePopup.style.display = 'none';
+                });
+
+                declineButton.addEventListener('click', function() {
+                    setCookie('cookiePolicy', 'declined', 365);
+                    cookiePopup.style.display = 'none';
+                });
+
+                function setCookie(name, value, days) {
+                    var expires = "";
+                    if (days) {
+                        var date = new Date();
+                        date.setTime(date.getTime() + (days*24*60*60*1000));
+                        expires = "; expires=" + date.toUTCString();
+                    }
+                    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+                }
+
+                function getCookie(name) {
+                    var nameEQ = name + "=";
+                    var ca = document.cookie.split(';');
+                    for(var i=0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                    }
+                    return null;
+                }
+            });
+        </script>
+    </body>
+</html>

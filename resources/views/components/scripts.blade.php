@@ -1,0 +1,13 @@
+<script src="{{asset('storefront/assets/js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('storefront/assets/js/bootstrap.bundle.js')}}"></script>
+<script src="{{asset('storefront/assets/js/jquery.meanmenu.js')}}"></script>
+<script src="{{asset('storefront/assets/js/nouislider.min.js')}}"></script>
+<script src="{{asset('storefront/assets/js/wNumb.js')}}"></script>
+<script src="{{asset('storefront/assets/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('storefront/assets/js/slick.min.js')}}"></script>
+<script src="{{asset('storefront/assets/js/slick-slider.js')}}"></script>
+<script src="{{asset('storefront/assets/js/wow.min.js')}}"></script>
+<script src="{{asset('storefront/assets/js/better-rating.js')}}"></script>
+<script src="{{asset('storefront/assets/js/custom.js')}}"></script>
+<script src="{{asset('storefront/assets/js/add-form.js')}}"></script>
+<script src="{{asset('storefront/assets/js/form-dropdown.js')}}"></script>

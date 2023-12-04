@@ -1,0 +1,30 @@
+.list-custom{
+    display: flex;
+    align-items: center
+}
+.show-info{
+    min-height: 455px;
+}
+.list-custom-main{
+    padding: 0;
+    max-height: 455px;
+    overflow-x: auto;
+}
+.card-img-actions img{
+    height: 420px;
+    width: 420px;
+    object-fit: cover;
+}
+.file-thumb-loading:before{
+    position: absolute;
+    content: '';
+    top: 33px;
+    left: 16px;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0, .19);
+    z-index: 999999;
+}
+.file-thumb-loading:after{
+    z-index: 999999;
+}
